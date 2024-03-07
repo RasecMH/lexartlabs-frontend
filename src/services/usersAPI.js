@@ -3,7 +3,7 @@ import axios from 'axios';
 export const loginRequest = async ({email, password}) => {
     return axios({
       method: "post",
-      url: "http://localhost:3001/users/login",
+      url: "https://lexartlabs-backend.vercel.app/users/login",
       withCredentials: true,
       data: {
         email,
@@ -15,7 +15,7 @@ export const loginRequest = async ({email, password}) => {
 export const registerRequest = async ({email, password, name}) => {
   return axios({
       method: "post",
-      url: "http://localhost:3001/users/register",
+      url: "https://lexartlabs-backend.vercel.app/users/register",
       withCredentials: true,
       data: {
         email,
@@ -29,7 +29,7 @@ export const registerRequest = async ({email, password, name}) => {
 export const validateRequest = async () => {
   return axios({
       method: "get",
-      url: "http://localhost:3001/users/validate",
+      url: "https://lexartlabs-backend.vercel.app/users/validate",
       withCredentials: true
     })
   

@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getProductsRequest = async () => {
     return axios({
       method: "get",
-      url: "http://localhost:3001/products",
+      url: "https://lexartlabs-backend.vercel.app/products",
       withCredentials: true,
     });
 }
@@ -11,7 +11,7 @@ export const getProductsRequest = async () => {
 export const updateProductsRequest = async (payload) => {
     return axios({
       method: "put",
-      url: "http://localhost:3001/products/update",
+      url: "https://lexartlabs-backend.vercel.app/products/update",
       withCredentials: true,
       data: payload
     });
@@ -20,7 +20,7 @@ export const updateProductsRequest = async (payload) => {
 export const deleteProductsRequest = async (id) => {
     return axios({
       method: "delete",
-      url: `http://localhost:3001/products/delete/${id}`,
+      url: `https://lexartlabs-backend.vercel.app/products/delete/${id}`,
       withCredentials: true,
     });
 }
@@ -28,7 +28,7 @@ export const deleteProductsRequest = async (id) => {
 export const createProductsRequest = async (payload) => {
     return axios({
       method: "post",
-      url: `http://localhost:3001/products/create`,
+      url: `https://lexartlabs-backend.vercel.app/products/create`,
       withCredentials: true,
       data: payload
     });
@@ -37,7 +37,7 @@ export const createProductsRequest = async (payload) => {
 export const searchProductsRequest = async (query) => {
     return axios({
       method: "get",
-      url: `http://localhost:3001/products/search?q=${query}`,
+      url: `https://lexartlabs-backend.vercel.app/products/search?q=${query}`,
       withCredentials: true,
     });
 }
