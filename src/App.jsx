@@ -9,14 +9,18 @@ function App() {
   useEffect(() => {
     const auth = async () => {
       try {
-        await validateRequest();
-        navigate('/dashboard');
+        const token = localStorage.getItem('token');
+        await validateRequest(token);
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1500);
       } catch (error) {
         navigate('/login');
       }
     };
 
     auth();
+    return () => {};
   }, []);
 
   return <></>;
