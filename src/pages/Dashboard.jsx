@@ -21,7 +21,9 @@ const Dashboard = () => {
   useEffect(() => {
     const auth = async () => {
       try {
-        await validateRequest();
+        const token = localStorage.getItem('token');
+
+        await validateRequest(token);
       } catch (error) {
         navigate('/login');
       }

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const token = localStorage.getItem("token")
 
 
 export const loginRequest = async ({email, password}) => {
@@ -29,7 +28,7 @@ export const registerRequest = async ({email, password, name}) => {
   
 }
 
-export const validateRequest = async () => {
+export const validateRequest = async (token) => {
   return axios({
       method: "get",
       url: "https://lexartlabs-backend.vercel.app/users/validate",
