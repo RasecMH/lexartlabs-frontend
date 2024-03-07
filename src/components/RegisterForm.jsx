@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { registerRequest } from '../services/usersAPI';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await registerRequest({ name, email, password });
+      const { data } = await registerRequest({ name, email, password });
+      Cookies.set('token', data.token);
       navigate('/dashboard');
     } catch ({ response }) {
       console.log(response.data.message);
