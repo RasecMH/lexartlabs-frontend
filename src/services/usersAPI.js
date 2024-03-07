@@ -1,7 +1,6 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
-const token = Cookies.get('token')
+const token = localStorage.getItem("token")
 
 
 export const loginRequest = async ({email, password}) => {

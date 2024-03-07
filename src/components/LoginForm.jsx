@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loginRequest } from '../services/usersAPI';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -16,7 +15,7 @@ const LoginForm = () => {
     try {
       const { data } = await loginRequest({ email, password });
       console.log(data.token);
-      Cookies.set('token', data.token);
+      localStorage.setItem('token', data.token);
       navigate('/dashboard');
     } catch ({ response }) {
       console.log(response.data.message);
