@@ -1,53 +1,73 @@
 import axios from 'axios';
 
-const token = localStorage.getItem("token")
-
-
 export const getProductsRequest = async () => {
-    return axios({
-      method: "get",
-      url: "https://lexartlabs-backend.vercel.app/products",
-      headers: {
-        Authorization: token
-      }
-    });
-}
+  const token = localStorage.getItem('token');
+
+  return axios({
+    method: 'get',
+    url: 'https://lexartlabs-backend.vercel.app/products',
+    withCredentials: true,
+
+    headers: {
+      Authorization: token,
+    },
+  });
+};
 
 export const updateProductsRequest = async (payload) => {
-    return axios({
-      method: "put",
-      url: "https://lexartlabs-backend.vercel.app/products/update",
-      data: payload,
-      headers: {
-        Authorization: token
-      }
-    });
-}
+  const token = localStorage.getItem('token');
+
+  return axios({
+    method: 'put',
+    url: 'https://lexartlabs-backend.vercel.app/products/update',
+    data: payload,
+    withCredentials: true,
+
+    headers: {
+      Authorization: token,
+    },
+  });
+};
 
 export const deleteProductsRequest = async (id) => {
-    return axios({
-      method: "delete",
-      url: `https://lexartlabs-backend.vercel.app/products/delete/${id}`,
-    });
-}
+  const token = localStorage.getItem('token');
+
+  return axios({
+    method: 'delete',
+    url: `https://lexartlabs-backend.vercel.app/products/delete/${id}`,
+    withCredentials: true,
+
+    headers: {
+      Authorization: token,
+    },
+  });
+};
 
 export const createProductsRequest = async (payload) => {
-    return axios({
-      method: "post",
-      url: `https://lexartlabs-backend.vercel.app/products/create`,
-      data: payload,
-      headers: {
-        Authorization: token
-      }
-    });
-}
+  const token = localStorage.getItem('token');
+
+  return axios({
+    method: 'post',
+    url: `https://lexartlabs-backend.vercel.app/products/create`,
+    withCredentials: true,
+
+    data: payload,
+    headers: {
+      Authorization: token,
+    },
+  });
+};
 
 export const searchProductsRequest = async (query) => {
-    return axios({
-      method: "get",
-      url: `https://lexartlabs-backend.vercel.app/products/search?q=${query}`,
-      headers: {
-        Authorization: token
-      }
-    });
-}
+  const token = localStorage.getItem('token');
+
+  return axios({
+    method: 'get',
+    url: `https://lexartlabs-backend.vercel.app/products/search?q=${query}`,
+    withCredentials: true,
+
+    headers: {
+      Authorization: token,
+    },
+  });
+};
