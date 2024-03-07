@@ -22,7 +22,7 @@ const Dashboard = () => {
     const auth = async () => {
       try {
         const token = localStorage.getItem('token');
-
+        console.log(token);
         await validateRequest(token);
       } catch (error) {
         navigate('/login');
