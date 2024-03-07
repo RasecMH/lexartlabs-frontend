@@ -17,6 +17,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const { data } = await registerRequest({ name, email, password });
+      console.log(data.token);
       Cookies.set('token', data.token);
       navigate('/dashboard');
     } catch ({ response }) {
