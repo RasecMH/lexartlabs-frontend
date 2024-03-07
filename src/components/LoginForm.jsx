@@ -18,7 +18,7 @@ const LoginForm = () => {
       localStorage.setItem('token', data.token);
       setTimeout(() => {
         navigate('/dashboard');
-      }, 1000);
+      }, 1500);
     } catch ({ response }) {
       console.log(response.data.message);
     }
