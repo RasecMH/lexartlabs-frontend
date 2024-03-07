@@ -16,7 +16,9 @@ const LoginForm = () => {
       const { data } = await loginRequest({ email, password });
       console.log(data.token);
       localStorage.setItem('token', data.token);
-      navigate('/dashboard');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
     } catch ({ response }) {
       console.log(response.data.message);
     }
