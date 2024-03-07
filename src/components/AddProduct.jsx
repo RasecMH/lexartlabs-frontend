@@ -38,7 +38,7 @@ function AddProduct({ onAdd }) {
   };
 
   return (
-    <div className='z-50'>
+    <div>
       <button className='btn' onClick={handleOpenModal}>
         Add Product
       </button>
