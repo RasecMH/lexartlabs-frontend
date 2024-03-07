@@ -26,7 +26,7 @@ const EditForm = ({ product, onSave, onClose }) => {
   };
 
   return (
-    <div className='modal-box bg-white text-white'>
+    <div className='modal-box bg-white text-white z-50'>
       <h2>Edit Product</h2>
       <form onSubmit={handleSubmit}>
         <div>
