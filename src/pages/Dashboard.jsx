@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { validateRequest } from '../services/usersAPI';
 import {
-  createProductsRequest,
   deleteProductsRequest,
   getProductsRequest,
   searchProductsRequest,
@@ -11,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductsTable from '../components/ProductsTable';
 import Filter from '../components/Filter';
 import SearchBar from '../components/SearchBar';
-import AddProduct from '../components/AddProduct';
+import NavBar from '../components/NavBar';
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -25,7 +24,7 @@ const Dashboard = () => {
         console.log(token);
         await validateRequest(token);
       } catch (error) {
-        navigate('/');
+        // navigate('/');
       }
     };
 
@@ -51,16 +50,6 @@ const Dashboard = () => {
   const onSearch = async (query) => {
     try {
       const { data } = await searchProductsRequest(query);
-      setFilteredProducts(data);
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const onAdd = async (product) => {
-    try {
-      const { data } = await createProductsRequest(product);
       setFilteredProducts(data);
       setProducts(data);
     } catch (error) {
@@ -102,6 +91,7 @@ const Dashboard = () => {
     hero
     bg-white
     '>
+      <NavBar />
       <div className='bg-white text-black ml-5'>
         <Filter products={products} onFilter={onFilter} />
       </div>
@@ -109,7 +99,9 @@ const Dashboard = () => {
       <div className='flex flex-col items-center justify-center h-screen w-full'>
         <div className='w-3/4 bg-white text-black'>
           <div className='flex justify-between'>
-            <AddProduct onAdd={onAdd} />
+            <button className='btn' onClick={() => navigate('/create-product')}>
+              Add Product
+            </button>
             <SearchBar onSearch={onSearch} />
           </div>
           <div className='divider'></div>

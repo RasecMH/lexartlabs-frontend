@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const BulkAddProductForm = ({ onAdd, onClose }) => {
+const BulkAddProductForm = ({ onAdd }) => {
   const [newProduct, setNewProduct] = useState({ data: [{}] });
 
   const handleAddInputChange = (index, e) => {
@@ -145,9 +145,6 @@ const BulkAddProductForm = ({ onAdd, onClose }) => {
         <div className='flex justify-between my-3'>
           <button type='submit' className='btn'>
             Save to Queue
-          </button>
-          <button type='button' className='btn' onClick={onClose}>
-            Cancel
           </button>
         </div>
         <details className='dropdown w-full'>

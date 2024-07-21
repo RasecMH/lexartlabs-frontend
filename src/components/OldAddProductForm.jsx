@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const OldAddProductForm = ({ onAdd, onClose }) => {
+const OldAddProductForm = ({ onAdd }) => {
   const [newProduct, setNewProduct] = useState({});
 
   const handleChange = (e) => {
@@ -26,7 +26,6 @@ const OldAddProductForm = ({ onAdd, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAdd(newProduct);
-    onClose();
   };
 
   return (
@@ -101,9 +100,6 @@ const OldAddProductForm = ({ onAdd, onClose }) => {
         <div className='flex justify-between my-3'>
           <button type='submit' className='btn'>
             Create Product
-          </button>
-          <button type='button' className='btn' onClick={onClose}>
-            Cancel
           </button>
         </div>
         <details className='dropdown w-full'>

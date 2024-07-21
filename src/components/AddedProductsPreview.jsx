@@ -7,8 +7,12 @@ const AddedProductsPreview = ({ produtos, onEdit }) => {
   const [produtoSelecionado, setProdutoSelecionado] = useState(null);
 
   const handleOpenModal = (produto, index) => {
-    produto.index = index;
-    setProdutoSelecionado(produto);
+    if (produtoSelecionado !== null) {
+      setProdutoSelecionado(null);
+    } else {
+      produto.index = index;
+      setProdutoSelecionado(produto);
+    }
   };
 
   const handleCloseModal = () => {
