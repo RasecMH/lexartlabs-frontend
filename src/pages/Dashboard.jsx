@@ -11,6 +11,7 @@ import ProductsTable from '../components/ProductsTable';
 import Filter from '../components/Filter';
 import SearchBar from '../components/SearchBar';
 import NavBar from '../components/NavBar';
+import { getMinAndMaxPrice } from '../utils/getMinAndMaxPrice';
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -92,7 +93,12 @@ const Dashboard = () => {
     '>
       <NavBar />
       <div className='bg-white text-black ml-5'>
-        <Filter products={products} onFilter={onFilter} />
+        <Filter
+          products={products}
+          onFilter={onFilter}
+          minPrice={getMinAndMaxPrice(products).minPrice}
+          maxPrice={getMinAndMaxPrice(products).maxPrice}
+        />
       </div>
       <div className='divider divider-horizontal'></div>
       <div className='flex flex-col items-center justify-center h-screen w-full'>

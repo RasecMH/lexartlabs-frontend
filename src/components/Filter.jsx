@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { getMinAndMaxPrice } from '../utils/getMinAndMaxPrice';
 
-function FiltroProdutos({ products, onFilter }) {
+function FiltroProdutos({ products, onFilter, minPrice, maxPrice }) {
   const [filtroCores, setFiltroCores] = useState([]);
   const [filtroMarcas, setFiltroMarcas] = useState([]);
-  const [filtroPrecoMin, setFiltroPrecoMin] = useState(0);
-  const [filtroPrecoMax, setFiltroPrecoMax] = useState(0);
-
-  useEffect(() => {
-    const { minPrice, maxPrice } = getMinAndMaxPrice(products);
-    setFiltroPrecoMin(minPrice);
-    setFiltroPrecoMax(maxPrice);
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [filtroPrecoMin, setFiltroPrecoMin] = useState(minPrice);
+  const [filtroPrecoMax, setFiltroPrecoMax] = useState(maxPrice);
 
   const coresDisponiveis = [
     ...new Set(products.map((product) => product.color)),
@@ -122,6 +113,8 @@ FiltroProdutos.propTypes = {
     })
   ).isRequired,
   onFilter: PropTypes.func.isRequired,
+  minPrice: PropTypes.number.isRequired,
+  maxPrice: PropTypes.number.isRequired,
 };
 
 export default FiltroProdutos;
