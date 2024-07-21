@@ -21,9 +21,9 @@ function FiltroProdutos({ products, onFilter, minPrice, maxPrice }) {
       const marcaMatch =
         filtroMarcas.length === 0 || filtroMarcas.includes(product.brand);
       const precoMinMatch =
-        filtroPrecoMin === '' || product.price >= parseFloat(filtroPrecoMin);
+        filtroPrecoMin === 0 || product.price >= parseFloat(filtroPrecoMin);
       const precoMaxMatch =
-        filtroPrecoMax === '' || product.price <= parseFloat(filtroPrecoMax);
+        filtroPrecoMax === 0 || product.price <= parseFloat(filtroPrecoMax);
       return corMatch && marcaMatch && precoMinMatch && precoMaxMatch;
     });
     onFilter(filteredProducts);
