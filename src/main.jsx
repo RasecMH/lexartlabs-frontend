@@ -7,6 +7,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import CreateProduct from './pages/CreateProduct.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <Dashboard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/create-product',
+    element: <CreateProduct />,
     errorElement: <ErrorPage />,
   },
 ]);
