@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getMinAndMaxPrice } from '../utils/getMinAndMaxPrice';
 
 function FiltroProdutos({ products, onFilter }) {
-  const { maxPrice } = getMinAndMaxPrice(products);
   const [filtroCores, setFiltroCores] = useState([]);
   const [filtroMarcas, setFiltroMarcas] = useState([]);
-  const [filtroPrecoMin, setFiltroPrecoMin] = useState(
-    getMinAndMaxPrice(products).minPrice
-  );
-  const [filtroPrecoMax, setFiltroPrecoMax] = useState(maxPrice);
+  const [filtroPrecoMin, setFiltroPrecoMin] = useState(0);
+  const [filtroPrecoMax, setFiltroPrecoMax] = useState(0);
+
+  useEffect(() => {
+    const { minPrice, maxPrice } = getMinAndMaxPrice(products);
+    setFiltroPrecoMin(minPrice);
+    setFiltroPrecoMax(maxPrice);
+    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const coresDisponiveis = [
     ...new Set(products.map((product) => product.color)),
@@ -86,7 +91,6 @@ function FiltroProdutos({ products, onFilter }) {
         <label>Preço Mínimo:</label>
         <input
           type='number'
-          min={filtroPrecoMin}
           value={filtroPrecoMin}
           className='text-white'
           onChange={(e) => setFiltroPrecoMin(e.target.value)}
@@ -96,7 +100,6 @@ function FiltroProdutos({ products, onFilter }) {
         <label>Preço Máximo:</label>
         <input
           type='number'
-          max={filtroPrecoMax}
           value={filtroPrecoMax}
           className='text-white'
           onChange={(e) => setFiltroPrecoMax(e.target.value)}
