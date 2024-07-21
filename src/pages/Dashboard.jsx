@@ -16,6 +16,7 @@ import { getMinAndMaxPrice } from '../utils/getMinAndMaxPrice';
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [noProducts, setNoProducts] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -44,7 +45,11 @@ const Dashboard = () => {
   }, []);
 
   const onFilter = (products) => {
-    setFilteredProducts(products);
+    if (products.length <= 0) {
+      setNoProducts(true);
+    } else {
+      setFilteredProducts(products);
+    }
   };
 
   const onSearch = async (query) => {
@@ -110,12 +115,15 @@ const Dashboard = () => {
             <SearchBar onSearch={onSearch} />
           </div>
           <div className='divider'></div>
-
-          <ProductsTable
-            products={filteredProducts.length ? filteredProducts : products}
-            onSave={handleEdit}
-            onDelete={handleDelete}
-          />
+          {noProducts ? (
+            <div className='text-xl'>No products found</div>
+          ) : (
+            <ProductsTable
+              products={filteredProducts.length ? filteredProducts : products}
+              onSave={handleEdit}
+              onDelete={handleDelete}
+            />
+          )}
         </div>
       </div>
     </div>
