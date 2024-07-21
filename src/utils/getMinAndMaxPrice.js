@@ -6,5 +6,6 @@ export const getMinAndMaxPrice = (products) => {
     minPrice = Math.min(...allPrices);
     maxPrice = Math.max(...allPrices);
   }
+  console.log(allPrices);
   return { minPrice, maxPrice };
 };
