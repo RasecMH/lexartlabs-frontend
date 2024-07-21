@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { getMinAndMaxPrice } from '../utils/getMinAndMaxPrice';
 
 function FiltroProdutos({ products, onFilter }) {
-  const { minPrice, maxPrice } = getMinAndMaxPrice(products);
+  const { maxPrice } = getMinAndMaxPrice(products);
   const [filtroCores, setFiltroCores] = useState([]);
   const [filtroMarcas, setFiltroMarcas] = useState([]);
-  const [filtroPrecoMin, setFiltroPrecoMin] = useState(minPrice);
+  const [filtroPrecoMin, setFiltroPrecoMin] = useState(
+    getMinAndMaxPrice(products).minPrice
+  );
   const [filtroPrecoMax, setFiltroPrecoMax] = useState(maxPrice);
 
   const coresDisponiveis = [
