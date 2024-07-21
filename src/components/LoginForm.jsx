@@ -26,13 +26,12 @@ const LoginForm = () => {
     <div
       className='flex
     flex-col
-    align-center
+    items-center
     justify-center
     space-y-4
     '>
-      {/* <img src={}} className='w-36 self-center' /> */}
       <form
-        className='flex flex-col align-center justify-center space-y-4'
+        className='flex flex-col items-center  justify-center space-y-4'
         onSubmit={handleSubmit}>
         <input
           type='email'
@@ -43,7 +42,7 @@ const LoginForm = () => {
         />
         <input
           type='password'
-          className='input input-bordered bg-gray-50'
+          className='input input-bordered bg-gray-50 w-full'
           placeholder='Password'
           value={password}
           onChange={({ target: { value } }) => setPassword(value)}
@@ -54,11 +53,16 @@ const LoginForm = () => {
           btn
           btn-neutral
           btn-accent
+          text-lg
           text-white
+          w-full
           '>
-          Login
+          Log In
         </button>
-        <Link to={'/register'}>
+        <div className='divider w-full'></div>
+        <Link
+          to={'/register'}
+          className='flex items-center w-full justify-center'>
           <button
             type='button'
             className='
@@ -66,9 +70,10 @@ const LoginForm = () => {
           btn-neutral
           btn-accent
           text-white
-          w-full
+          text-s
+          w-3/4
           '>
-            Register
+            Create new account
           </button>
         </Link>
       </form>

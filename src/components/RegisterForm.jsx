@@ -10,7 +10,6 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordAgain, setPasswordAgain] = useState('');
-  // const passwordMinLength = 6;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,6 @@ const LoginForm = () => {
     justify-center
     space-y-4
     '>
-      {/* <img src={}} className='w-36 self-center' /> */}
       <form
         className='flex flex-col align-center justify-center space-y-4'
         onSubmit={handleSubmit}>
@@ -72,27 +70,22 @@ const LoginForm = () => {
           btn-neutral
           btn-accent
           text-white
-          '
-          // disabled={
-          //   !(
-          //     email.match(/\S+@\S+\.\S+/i) &&
-          //     password.length > passwordMinLength
-          //   )
-          // }
-        >
-          Register
+          '>
+          Sign Up
         </button>
-        <Link to={'/login'}>
+        <div className='divider w-full'></div>
+        <Link to={'/login'} className='flex items-center w-full justify-center'>
           <button
-            type='submit'
+            type='button'
             className='
           btn
           btn-neutral
           btn-accent
           text-white
-          w-full
+          text-s
+          w-3/4
           '>
-            Login
+            Log In
           </button>
         </Link>
       </form>
