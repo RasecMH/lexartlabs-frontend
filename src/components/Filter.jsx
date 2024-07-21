@@ -84,6 +84,7 @@ function FiltroProdutos({ products, onFilter }) {
         <label>Preço Mínimo:</label>
         <input
           type='number'
+          min={filtroPrecoMin}
           value={filtroPrecoMin}
           className='text-white'
           onChange={(e) => setFiltroPrecoMin(e.target.value)}
@@ -93,6 +94,7 @@ function FiltroProdutos({ products, onFilter }) {
         <label>Preço Máximo:</label>
         <input
           type='number'
+          max={filtroPrecoMax}
           value={filtroPrecoMax}
           className='text-white'
           onChange={(e) => setFiltroPrecoMax(e.target.value)}
