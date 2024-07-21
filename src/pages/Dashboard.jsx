@@ -48,6 +48,7 @@ const Dashboard = () => {
     if (products.length <= 0) {
       setNoProducts(true);
     } else {
+      setNoProducts(false);
       setFilteredProducts(products);
     }
   };
