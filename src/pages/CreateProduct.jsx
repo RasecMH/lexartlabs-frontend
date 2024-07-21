@@ -19,7 +19,7 @@ const CreateProduct = () => {
         const token = localStorage.getItem('token');
         await validateRequest(token);
       } catch (error) {
-        // navigate('/');
+        navigate('/');
       }
     };
 

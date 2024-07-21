@@ -15,7 +15,6 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const { data } = await registerRequest({ name, email, password });
-      console.log(data.token);
       localStorage.setItem('token', data.token);
       setTimeout(() => {
         navigate('/dashboard');
